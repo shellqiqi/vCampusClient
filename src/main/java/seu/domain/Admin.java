@@ -2,16 +2,18 @@ package seu.domain;
 
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 @Component
-public class Admin {
+public class Admin implements Serializable {
     private int adminId;
     private String password;
 
-    public Admin(){super();}
+    public Admin() {super();}
 
-    public Admin(int Id, String passwd ){
-        this.adminId = Id;
-        this.password = passwd;
+    public Admin(int adminId, String password) {
+        this.adminId = adminId;
+        this.password = password;
     }
 
     public int getAdminId() {
@@ -28,5 +30,13 @@ public class Admin {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "adminId=" + adminId +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
