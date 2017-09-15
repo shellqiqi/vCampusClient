@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="652.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.view.DormitoryManage">
+   <children>
+      <Text layoutX="149.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍分数查询：" wrappingWidth="189.240234375">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Text layoutX="149.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍分数修改：" wrappingWidth="175.240240290761">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <TextField fx:id="dormitoryIDChange" layoutX="317.0" layoutY="191.0" />
+      <TextField fx:id="dormitoryIDFind" layoutX="317.0" layoutY="125.0" />
+      <Button fx:id="findConfirm" layoutX="544.0" layoutY="125.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="68.0" text="确认" />
+      <Button fx:id="changeConfirm" layoutX="544.0" layoutY="191.0" mnemonicParsing="false" onAction="#changeConfirm" prefHeight="30.0" prefWidth="68.0" text="确认" />
+      <Text layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="增加宿舍：" wrappingWidth="129.240234375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="dormitoryAdd" layoutX="317.0" layoutY="367.0" />
+      <Text layoutX="221.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍号：">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="197.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍分数：">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="scoreAdd" layoutX="317.0" layoutY="416.0" onAction="#scoreAdd" />
+      <Button fx:id="addConfirm" layoutX="544.0" layoutY="459.0" mnemonicParsing="false" onAction="#addConfirm" prefHeight="30.0" prefWidth="68.0" text="确认" />
+      <Text layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="删除宿舍：" wrappingWidth="129.240234375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="221.0" layoutY="539.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍号：">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="deleteDormity" layoutX="325.0" layoutY="515.0" />
+      <Button fx:id="deleteDormitoryConfirm" layoutX="544.0" layoutY="557.0" mnemonicParsing="false" onAction="#deleteDormitoryConfirm" prefHeight="30.0" prefWidth="68.0" text="确认" />
+   </children>
+</AnchorPane>

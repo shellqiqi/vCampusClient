@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="652.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.view.StudentManage">
+   <children>
+      <Text layoutX="12.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="查询学生信息（通过学号）" wrappingWidth="204.24022752046585" />
+      <Text layoutX="13.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="删除学生" wrappingWidth="118.240234375" />
+      <Text layoutX="11.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="请输入学号：" wrappingWidth="106.99999345093966" />
+      <Text layoutX="14.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="添加学生" wrappingWidth="99.99999183416367" />
+      <Text layoutX="14.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="请输入学生基本信息：" wrappingWidth="155.99999345093966" />
+      <Text layoutX="155.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学号：" wrappingWidth="61.24023565649986" />
+      <Text layoutX="372.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" wrappingWidth="50.24023926258087" />
+      <Text layoutX="139.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="班级号：" wrappingWidth="61.24023565649986" />
+      <Text layoutX="353.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍号：" wrappingWidth="69.240234375" />
+      <TextField fx:id="studengIDFind" layoutX="200.0" layoutY="108.0" prefHeight="30.0" prefWidth="148.0" />
+      <TextField fx:id="studentIDDel" layoutX="200.0" layoutY="265.0" prefHeight="30.0" prefWidth="148.0" />
+      <TextField fx:id="studengIDAdd" layoutX="211.0" layoutY="430.0" prefHeight="23.0" prefWidth="100.0" />
+      <TextField fx:id="classIDAdd" layoutX="211.0" layoutY="496.0" prefHeight="23.0" prefWidth="100.0" />
+      <TextField fx:id="studengIDAdd" layoutX="423.0" layoutY="430.0" prefHeight="23.0" prefWidth="100.0" />
+      <TextField fx:id="dormitoryAdd" layoutX="423.0" layoutY="496.0" prefHeight="23.0" prefWidth="100.0" />
+      <Button fx:id="studengtFind" layoutX="423.0" layoutY="108.0" mnemonicParsing="false" onAction="#studentFind" text="确认" />
+      <Button fx:id="studentDel" layoutX="423.0" layoutY="265.0" mnemonicParsing="false" onAction="#studengtDel" text="确认" />
+      <Button fx:id="studengtAdd" layoutX="541.0" layoutY="545.0" mnemonicParsing="false" text="确认" />
+   </children>
+</AnchorPane>

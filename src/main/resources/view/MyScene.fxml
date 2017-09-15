@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="admin" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.view.MyController">
+   <children>
+      <Button id="signIn" fx:id="signIn" layoutX="141.0" layoutY="325.0" mnemonicParsing="false" onAction="#signIn" text="登录">
+         <font>
+            <Font name="Yu Gothic Medium" size="18.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff3737" />
+                  <Stop color="#37b5eb" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+
+      <Button id="signOut" fx:id="signOut" layoutX="368.0" layoutY="324.0" mnemonicParsing="false" onAction="#signOut" prefHeight="34.0" prefWidth="57.0" text="退出">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff3737" />
+                  <Stop color="#37b5eb" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+      <RadioButton id="admin" fx:id="admin" layoutX="389.0" layoutY="157.0" mnemonicParsing="false" />
+      <RadioButton id="student" fx:id="student" layoutX="141.0" layoutY="157.0" mnemonicParsing="false" prefWidth="139.0" />
+      <RadioButton id="teacher" fx:id="teacher" layoutX="276.0" layoutY="157.0" mnemonicParsing="false" />
+      <Text layoutX="154.0" layoutY="217.0" scaleX="1.7" scaleY="1.7" strokeType="OUTSIDE" strokeWidth="0.0" text="账号" wrappingWidth="37.29411315917969">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff3737" />
+                  <Stop color="#1870f5" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill></Text>
+      <Text layoutX="158.0" layoutY="279.0" scaleX="1.7" scaleY="1.7" strokeType="OUTSIDE" strokeWidth="0.0" text="密码" wrappingWidth="48.99999797344208">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff3737" />
+                  <Stop color="#1871f5" offset="0.4646464646464647" />
+                  <Stop color="BLACK" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill></Text>
+      <TextField fx:id="accountNumber" layoutX="257.0" layoutY="200.0" prefHeight="25.0" prefWidth="155.0" />
+      <PasswordField fx:id="password" layoutX="257.0" layoutY="262.0" prefHeight="25.0" prefWidth="155.0" />
+      <Text layoutX="52.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to " wrappingWidth="513.86083984375">
+         <font>
+            <Font size="34.0" />
+         </font>
+         <fill>
+            <RadialGradient centerX="0.3388888888888888" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#ff3737" />
+                  <Stop color="#37b5eb" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Text>
+      <Text layoutX="309.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vcampus" wrappingWidth="310.10107421875">
+         <font>
+            <Font size="55.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" startX="0.02857142857142857">
+               <stops>
+                  <Stop color="#ff4d38" />
+                  <Stop color="#2848b5" offset="0.9701131161805321" />
+                  <Stop color="BLACK" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text layoutX="164.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="学生" wrappingWidth="71.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#f51818" />
+                  <Stop color="#38ffb1" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text layoutX="297.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教师" wrappingWidth="71.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff3737" />
+                  <Stop color="#38b9ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Text layoutX="410.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="管理员" wrappingWidth="71.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff3737" />
+                  <Stop color="#38e8ff" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+   </children>
+   <stylesheets>
+   <URL value="@login.css" />
+</stylesheets>
+</AnchorPane>

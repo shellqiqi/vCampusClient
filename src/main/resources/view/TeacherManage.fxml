@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="652.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.view.TeacherManage">
+   <children>
+      <Text layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教师信息查询：" wrappingWidth="120.99999901652336" />
+      <Text layoutX="10.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="删除教师信息" wrappingWidth="101.240234375" />
+      <Text layoutX="78.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="请输入教师工号：" wrappingWidth="129.240234375" />
+      <Text layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="添加教师信息：" wrappingWidth="121.00000868737698" />
+      <Text layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="请输入教师基本信息：" wrappingWidth="158.240234375" />
+      <Text layoutX="168.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="工号：" wrappingWidth="49.99999833479524" />
+      <Text layoutX="394.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="姓名：" wrappingWidth="58.240234375" />
+      <Text layoutX="139.0" layoutY="533.0" strokeType="OUTSIDE" strokeWidth="0.0" text="联系电话：" wrappingWidth="78.24023336172104" />
+      <TextField layoutX="227.0" layoutY="139.0" prefHeight="23.0" prefWidth="121.0" />
+      <TextField fx:id="teacherIDDel" layoutX="227.0" layoutY="280.0" prefHeight="23.0" prefWidth="121.0" />
+      <TextField fx:id="teacherIDAdd" layoutX="227.0" layoutY="444.0" prefHeight="23.0" prefWidth="121.0" />
+      <TextField fx:id="teacherPhoneNumberAdd" layoutX="227.0" layoutY="512.0" onAction="#teacherPhoneNumberAdd" prefHeight="23.0" prefWidth="121.0" />
+      <TextField fx:id="teacherNameAdd" layoutX="443.0" layoutY="444.0" prefHeight="23.0" prefWidth="121.0" />
+      <Button fx:id="teacherInfoFind" layoutX="384.0" layoutY="139.0" mnemonicParsing="false" onAction="#teacherInfoFind" text="确认" />
+      <Button fx:id="delConfirm" layoutX="384.0" layoutY="280.0" mnemonicParsing="false" onAction="#delConfirm" text="确认" />
+      <Button fx:id="teacherAddConfirm" layoutX="564.0" layoutY="560.0" mnemonicParsing="false" onAction="#teacherAddConfirm" prefHeight="0.0" prefWidth="50.0" text="确认" />
+      <Text layoutX="87.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="请输入教师工号：" wrappingWidth="129.240234375" />
+   </children>
+</AnchorPane>
