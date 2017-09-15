@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.view.dormitoryPaneController">
+   <children>
+      <TextField fx:id="dormitoryID" layoutX="211.0" layoutY="64.0" onAction="#getDormitoryID" />
+      <TextField fx:id="dormitoryScore" layoutX="211.0" layoutY="289.0" onAction="#getDormitoryScore" />
+      <Text layoutX="112.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍号" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="112.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="宿舍分" />
+   </children>
+</AnchorPane>

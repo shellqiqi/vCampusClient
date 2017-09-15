@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="652.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.view.teacherInfoPaneController">
+   <children>
+      <Text layoutX="149.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教师ID：" wrappingWidth="101.3359375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="teacherID" layoutX="261.0" layoutY="116.0" />
+      <TextField fx:id="teacherName" layoutX="261.0" layoutY="209.0" />
+      <Text layoutX="123.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教师姓名：" wrappingWidth="126.3359375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="teacherPhoneNumber" layoutX="261.0" layoutY="296.0" />
+      <Text layoutX="123.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="教师电话：" wrappingWidth="126.3359375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="123.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="邮箱地址：" wrappingWidth="126.3359375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="emailAddress" layoutX="261.0" layoutY="371.0" />
+   </children>
+</AnchorPane>

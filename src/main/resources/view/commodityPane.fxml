@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="652.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.view.commodityPaneController">
+   <children>
+      <Text layoutX="30.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="账户余额：" wrappingWidth="139.30029296875">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="balance" layoutX="160.0" layoutY="11.0" prefHeight="36.0" prefWidth="139.0" />
+      <Text layoutX="358.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="购物总计：">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="total" layoutX="486.0" layoutY="9.0" prefHeight="36.0" prefWidth="139.0" />
+      <Button fx:id="waterSub" layoutX="174.0" layoutY="94.0" mnemonicParsing="false" onAction="#subWater" prefHeight="48.0" prefWidth="50.0" scaleX="0.5" scaleY="0.5" text="-" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="waterAdd" layoutX="235.0" layoutY="94.0" mnemonicParsing="false" onAction="#addWater" prefHeight="36.0" prefWidth="43.0" scaleX="0.5" scaleY="0.5" text="+">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="waterBoughtAmount" layoutX="209.0" layoutY="103.0" prefHeight="30.0" prefWidth="41.0" scaleX="0.7" scaleY="0.7" />
+      <Button fx:id="colaSub" layoutX="487.0" layoutY="94.0" mnemonicParsing="false" onAction="#subCola" prefHeight="48.0" prefWidth="50.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" text="-">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="colaAdd" layoutX="546.0" layoutY="94.0" mnemonicParsing="false" onAction="#addCola" prefHeight="36.0" prefWidth="50.0" scaleX="0.5" scaleY="0.5" text="+">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="colaBoughtAmount" layoutX="521.0" layoutY="103.0" prefHeight="30.0" prefWidth="41.0" scaleX="0.7" scaleY="0.7" />
+      <Text layoutX="50.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="矿泉水   ¥1.0" wrappingWidth="110.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="389.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="可乐  ¥3.0" wrappingWidth="96.99999633431435">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="50.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="面包      ¥1.5" wrappingWidth="110.00000262260437">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="breadSub" layoutX="173.0" layoutY="242.0" mnemonicParsing="false" onAction="#subBread" prefHeight="48.0" prefWidth="50.0" scaleX="0.5" scaleY="0.5" text="-">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="breadBoughtAmount1" layoutX="208.0" layoutY="251.0" prefHeight="30.0" prefWidth="41.0" scaleX="0.7" scaleY="0.7" />
+      <Button fx:id="breadAdd" layoutX="234.0" layoutY="242.0" mnemonicParsing="false" onAction="#addBread" prefHeight="36.0" prefWidth="43.0" scaleX="0.5" scaleY="0.5" text="+">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Text layoutX="363.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="方便面   ¥1.0" wrappingWidth="110.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="easynoodleSub" layoutX="487.0" layoutY="242.0" mnemonicParsing="false" onAction="#subeasynoodle" prefHeight="48.0" prefWidth="50.0" scaleX="0.5" scaleY="0.5" text="-">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="easynoodleAmount" layoutX="522.0" layoutY="251.0" prefHeight="30.0" prefWidth="41.0" scaleX="0.7" scaleY="0.7" />
+      <Button fx:id="easynoodleAdd" layoutX="547.0" layoutY="242.0" mnemonicParsing="false" onAction="#easynoodleAdd" prefHeight="36.0" prefWidth="50.0" scaleX="0.5" scaleY="0.5" text="+">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Text layoutX="44.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="钢笔     ¥10.0" wrappingWidth="110.00000262260437">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="penSub" layoutX="174.0" layoutY="407.0" mnemonicParsing="false" onAction="#subPen" prefHeight="48.0" prefWidth="50.0" scaleX="0.5" scaleY="0.5" text="-">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="penBoughtAmount11" layoutX="209.0" layoutY="416.0" prefHeight="30.0" prefWidth="41.0" scaleX="0.7" scaleY="0.7" />
+      <Button fx:id="penAdd" layoutX="236.0" layoutY="407.0" mnemonicParsing="false" onAction="#addPen" prefHeight="36.0" prefWidth="43.0" scaleX="0.5" scaleY="0.5" text="+">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Text layoutX="363.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="本子      ¥2.0" wrappingWidth="110.00000262260437">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="noteSub" layoutX="488.0" layoutY="407.0" mnemonicParsing="false" onAction="#subNote" prefHeight="48.0" prefWidth="50.0" scaleX="0.5" scaleY="0.5" text="-">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="nodeAmount" layoutX="523.0" layoutY="416.0" prefHeight="30.0" prefWidth="41.0" scaleX="0.7" scaleY="0.7" />
+      <Button fx:id="noteAdd" layoutX="548.0" layoutY="407.0" mnemonicParsing="false" onAction="#noteAdd" prefHeight="36.0" prefWidth="50.0" scaleX="0.5" scaleY="0.5" text="+">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="checked" layoutX="544.0" layoutY="602.0" mnemonicParsing="false" onAction="#checked" scaleX="0.7" scaleY="0.7" text="确认购买">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

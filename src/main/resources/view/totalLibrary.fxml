@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="649.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seu.view.totalLibrary">
+  <tabs>
+    <Tab fx:id="libraryTab" text="图书馆        ">
+      <content>
+        <AnchorPane fx:id="librarySearch" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="BookName" layoutX="211.0" layoutY="283.0" />
+                  <Text layoutX="252.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="图书馆服务">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="7.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="输入图书名称查询：">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="searchBooks" layoutX="483.0" layoutY="283.0" mnemonicParsing="false" onAction="#searchBooks" text="查询" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="returnTab" onSelectionChanged="#returnTab" text="学生还书       ">
+      <content>
+        <AnchorPane fx:id="studentReturn" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+                <TableView fx:id="studentBookTable" prefHeight="652.0" prefWidth="649.0">
+                    <columns>
+                        <TableColumn fx:id="bookName" prefWidth="142.0" text="图书名称" />
+                        <TableColumn fx:id="bookID" prefWidth="167.0" text="图书代码" />
+                        <TableColumn fx:id="startDate" prefWidth="146.0" text="起始日期" />
+                        <TableColumn fx:id="returnBook" prefWidth="193.0" text="归还书籍" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>

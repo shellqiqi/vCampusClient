@@ -1,0 +1,33 @@
+
+
+/*button类型选择器设置所有Button的背景色*/
+
+.button{
+
+
+
+    -fx-background-color:#FFFFFF;
+
+    -fx-border-radius: 20;
+
+    -fx-background-radius: 20;
+
+    -fx-padding: 5;
+
+}
+
+/*hover伪类选择器设置鼠标移过Button时的背景色*/
+.button:hover {
+    -fx-background-color: lightskyblue;
+}
+
+.root {
+     -fx-background-image: url("16.jpg");
+}
+
+.label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
