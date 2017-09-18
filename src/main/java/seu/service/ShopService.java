@@ -1,46 +1,58 @@
 package seu.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import seu.domain.Commodity;
+import seu.socket.Client;
+import seu.socket.ClientRequest;
 
 import java.util.List;
+
 @Service
 public class ShopService {
 
-    //添加商品信息
-    public int addCommodity(Commodity comm){
-        return 0;
+    private Client client;
+
+    @Autowired
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public int addCommodity(int id, String name, int prize, int inventory ){
-        return 0;
+    private String serviceName;
+
+    public ShopService() {
+        serviceName = "shopService";
     }
 
-    //删除商品信息
-    public int deleteCommodityById(int id){
-        return 0;
+    public int updatePrice(int commodityID, int price) {
+        return (int) client.send(new ClientRequest(serviceName, "updatePrice", new Class[]{int.class, int.class}, new Object[]{commodityID, price})).getData();
     }
 
-    //更改商品库存
-    public int changeInventoryById(int id,int inventory){
-        return 0;
+    public int updateInventory(int commodityID, int price) {
+        return (int) client.send(new ClientRequest(serviceName, "updateInventory", new Class[]{int.class, int.class}, new Object[]{commodityID, price})).getData();
     }
 
-    //更改商品价格
-    public int changePriceById(int id, int price){
-        return 0;
+    public int updateCommodity(Commodity commodity) {
+        return (int) client.send(new ClientRequest(serviceName, "updateCommodity", new Class[]{Commodity.class}, new Object[]{commodity})).getData();
     }
 
-    //获取商品信息
-    public String getCommodityNameById(int id){
-        return null;
+    //学生购物
+    public int purchase(int studentID, int commodityID) {
+        return (int) client.send(new ClientRequest(serviceName, "purchase", new Class[]{int.class, int.class}, new Object[]{studentID, commodityID})).getData();
     }
 
-    public List<Commodity> getCommodityById(int id){
-        return null;
+    //管理员获取某个商品信息
+    public Commodity getCommodityById(int id) {
+        return (Commodity) client.send(new ClientRequest(serviceName, "getCommodityById", new Class[]{int.class}, new Object[]{id})).getData();
     }
 
-    public List<Commodity> getCommodity(){
-        return null;
+    //管理员添加商品信息
+    public int addCommodity(Commodity comm) {
+        return (int) client.send(new ClientRequest(serviceName, "addCommodity", new Class[]{Commodity.class}, new Object[]{comm})).getData();
+    }
+
+    //学生获取所有商品的信息
+    public List<Commodity> getCommodity() {
+        return (List<Commodity>) client.send(new ClientRequest(serviceName, "getCommodity")).getData();
     }
 }
