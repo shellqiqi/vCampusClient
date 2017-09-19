@@ -20,6 +20,7 @@ public class MainController {
 
     private static boolean load = false;
     public static int role = 0;
+    public static int account = 0;
 
     @FXML
     WebView webView;
@@ -50,6 +51,7 @@ public class MainController {
     private void loadController(JSObject jsObject) {
         jsObject.setMember("mainController", context.getBean("mainController"));
         jsObject.setMember("loginController", context.getBean("loginController"));
-        jsObject.setMember("mainBoardController", context.getBean("mainBoardController"));
+        jsObject.setMember("overViewController", context.getBean("overViewController"));
+        jsObject.setMember("userManageController", context.getBean("userManageController"));
     }
 }

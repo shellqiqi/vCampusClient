@@ -1,0 +1,43 @@
+<h1 class="page-header">用户管理</h1>
+
+<ul class="nav nav-tabs nav-justified" id="UserManageNav">
+    <li role="presentation" class="active" id="userStudentManage"><a href="#">学生</a></li>
+    <li role="presentation" id="userTeacherManage"><a href="#">老师</a></li>
+    <li role="presentation" id="userAdminManage"><a href="#">管理员</a></li>
+</ul>
+
+<ul class="nav nav-pills nav-justified">
+    <li role="presentation" data-toggle="modal" data-target="#userAddModal"><a href="#">增加</a></li>
+    <li role="presentation" data-toggle="modal" data-target="#userDeleteModal"><a href="#">删除</a></li>
+    <li role="presentation" data-toggle="modal" data-target="#userUpdateModal"><a href="#">更改</a></li>
+</ul>
+
+<script>
+    $(document).ready(function () {
+        $('#user-manage-board').load('userStudentManage.html');
+    });
+
+    $('#userStudentManage').click(function () {
+        removeUserManageNavActive();
+        $('#user-manage-board').load('userStudentManage.html');
+        $('#userStudentManage').addClass('active');
+    });
+
+    $('#userTeacherManage').click(function () {
+        removeUserManageNavActive();
+        $('#user-manage-board').load('userTeacherManage.html');
+        $('#userTeacherManage').addClass('active');
+    });
+
+    $('#userAdminManage').click(function () {
+        removeUserManageNavActive();
+        $('#user-manage-board').load('userAdminManage.html');
+        $('#userAdminManage').addClass('active');
+    });
+
+    function removeUserManageNavActive() {
+        $('#UserManageNav').children().filter('.active').removeClass('active');
+    }
+</script>
+<div id="user-manage-board">
+</div>

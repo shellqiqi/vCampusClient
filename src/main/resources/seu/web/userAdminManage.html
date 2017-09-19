@@ -1,0 +1,99 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>账户</th>
+    </tr>
+    </thead>
+    <tbody id="studentTable">
+    </tbody>
+</table>
+<script>
+    var json = userManageController.getAllAdmin();
+    var objs = jQuery.parseJSON(json);
+    var html = '';
+    for (var i=0;i<objs.length;i++)
+    {
+        html += '<tr><th>' + objs[i].adminId;
+        html += '</td></tr>';
+    }
+    $('#studentTable').html(html);
+</script>
+<!--增加-->
+<div class="modal fade" id="userAddModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">增加管理员</h4>
+            </div>
+            <div class="modal-body">
+                <p>请填写所有字段，重复账户名将添加失败</p>
+                <form>
+                    <div class="form-group">
+                        <label for="inputAddAdminId">账户</label>
+                        <input type="number" class="form-control" id="inputAddAdminId" placeholder="账户">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddAdminPassword">密码</label>
+                        <input type="password" class="form-control" id="inputAddAdminPassword" placeholder="密码">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">增加</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--删除-->
+<div class="modal fade" id="userDeleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">删除管理员</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="inputDeleteAdminId">账户</label>
+                        <input type="number" class="form-control" id="inputDeleteAdminId" placeholder="账户">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger">删除</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改-->
+<div class="modal fade" id="userUpdateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">更改管理员信息</h4>
+            </div>
+            <div class="modal-body">
+                <p>修改对应账户的管理员信息</p>
+                <form>
+                    <div class="form-group">
+                        <label for="inputUpdateAdminId">账户</label>
+                        <input type="number" class="form-control" id="inputUpdateAdminId" placeholder="账户">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUpdateAdminPassword">密码</label>
+                        <input type="password" class="form-control" id="inputUpdateAdminPassword" placeholder="密码">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">更改</button>
+            </div>
+        </div>
+    </div>
+</div>

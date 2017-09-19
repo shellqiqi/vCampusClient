@@ -7,7 +7,7 @@ function submitForm() {
     if (ex.test(account)) {
         login = loginController.login(account, password, role);
         if (login === 1) {
-            $(location).attr('href', 'mainboard.html');
+            $(location).attr('href', 'mainboard.html?role=' + role);
         } else {
             $('.alert-danger').text('用户名或密码错误');
             $('.alert-danger').slideDown();

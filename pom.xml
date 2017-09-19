@@ -38,6 +38,12 @@
             <artifactId>springboot-javafx-support</artifactId>
             <version>${springboot-javafx.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.owlike</groupId>
+            <artifactId>genson</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
 
     <build>

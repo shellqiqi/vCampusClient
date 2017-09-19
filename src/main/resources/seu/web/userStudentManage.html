@@ -1,0 +1,142 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>账户</th>
+        <th>姓名</th>
+        <th>班级编号</th>
+        <th>寝室号</th>
+        <th>账户余额</th>
+    </tr>
+    </thead>
+    <tbody id="studentTable">
+    </tbody>
+</table>
+<script>
+    var json = userManageController.getAllStudent();
+    var objs = jQuery.parseJSON(json);
+    var html = '';
+    for (var i=0;i<objs.length;i++)
+    {
+        html += '<tr><th>' + objs[i].studentId;
+        html += '</th><td>' + objs[i].studentName;
+        html += '</td><td>' + objs[i].classId;
+        html += '</td><td>' + objs[i].dormitoryId;
+        html += '</td><td>' + objs[i].balance;
+        html += '</td></tr>';
+    }
+    $('#studentTable').html(html);
+</script>
+<!--增加-->
+<div class="modal fade" id="userAddModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">增加学生</h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <p>请填写所有字段，重复账户名将添加失败</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="inputAddStudentId">账户</label>
+                            <input type="number" class="form-control" id="inputAddStudentId" placeholder="账户">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddStudentName">姓名</label>
+                            <input type="text" class="form-control" id="inputAddStudentName" placeholder="姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddStudentClassId">班级编号</label>
+                            <input type="number" class="form-control" id="inputAddStudentClassId" placeholder="班级编号">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddStudentDormitoryId">寝室号</label>
+                            <input type="number" class="form-control" id="inputAddStudentDormitoryId" placeholder="寝室号">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddStudentBalance">账户余额</label>
+                            <input type="number" class="form-control" id="inputAddStudentBalance" placeholder="账户余额">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddStudentPassword">密码</label>
+                            <input type="password" class="form-control" id="inputAddStudentPassword" placeholder="密码">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">增加</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--删除-->
+<div class="modal fade" id="userDeleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">删除学生</h4>
+            </div>
+            <div class="modal-body">
+                <p>学生没有退宿、退课及退班等情况下将删除失败</p>
+                <form>
+                    <div class="form-group">
+                        <label for="inputDeleteStudentId">账户</label>
+                        <input type="number" class="form-control" id="inputDeleteStudentId" placeholder="账户">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger">删除</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改-->
+<div class="modal fade" id="userUpdateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">更改学生信息</h4>
+            </div>
+            <div class="modal-body">
+                <p>修改对应账户的学生信息</p>
+                <form>
+                    <div class="form-group">
+                        <label for="inputDeleteStudentId">账户</label>
+                        <input type="number" class="form-control" id="inputUpdateStudentId" placeholder="账户">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUpdateStudentName">姓名</label>
+                        <input type="text" class="form-control" id="inputUpdateStudentName" placeholder="姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUpdateStudentClassId">班级编号</label>
+                        <input type="number" class="form-control" id="inputUpdateStudentClassId" placeholder="班级编号">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUpdateStudentDormitoryId">寝室号</label>
+                        <input type="number" class="form-control" id="inputUpdateStudentDormitoryId" placeholder="寝室号">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUpdateStudentBalance">账户余额</label>
+                        <input type="number" class="form-control" id="inputUpdateStudentBalance" placeholder="账户余额">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUpdateStudentPassword">密码</label>
+                        <input type="password" class="form-control" id="inputUpdateStudentPassword" placeholder="密码">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">更改</button>
+            </div>
+        </div>
+    </div>
+</div>
