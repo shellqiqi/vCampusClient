@@ -1,29 +1,43 @@
 package seu.controller;
 
 import de.felixroske.jfxsupport.FXMLController;
-import javafx.event.ActionEvent;
+import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Worker.State;
 import javafx.fxml.FXML;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import netscape.javascript.JSObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 @FXMLController
 public class MainController {
 
+    private static boolean load = false;
+
     @FXML
     WebView webView;
 
-    public void buttonClick1(ActionEvent actionEvent) {
-        webView.getEngine().load(getClass().getResource("/index.html").toExternalForm());
-        JSObject win = (JSObject) webView.getEngine().executeScript("window");
-        win.setMember("app", new MainController());
+    @Autowired
+    private ApplicationContext context;
+
+    public void load(MouseEvent mouseEvent) {
+        if (!load) {
+            load = true;
+            WebEngine webEngine = webView.getEngine();
+            webEngine.load(getClass().getResource("/seu/web/login.html").toExternalForm());
+            webEngine.getLoadWorker().stateProperty().addListener((ObservableValue<? extends State> ov, State oldState, State newState) -> {
+                if (newState == State.SUCCEEDED) {
+                    JSObject win = (JSObject) webEngine.executeScript("window");
+                    loadController(win);
+                }
+            });
+        }
     }
 
-    public String sout(String s) {
-        System.out.println(s);
-        return s + s;
-    }
-
-    public void buttonClick2(ActionEvent actionEvent) {
-        webView.getEngine().load("https://getbootstrap.com/docs/4.0/examples/dashboard/");
+    private void loadController(JSObject jsObject) {
+        jsObject.setMember("mainController", context.getBean("mainController"));
+        jsObject.setMember("loginController", context.getBean("loginController"));
     }
 }
