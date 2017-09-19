@@ -7,13 +7,13 @@ function submitForm() {
     if (ex.test(account)) {
         login = loginController.login(account, password, role);
         if (login === 1) {
-            $(location).attr('href', 'main.html');
+            $(location).attr('href', 'mainboard.html');
         } else {
             $('.alert-danger').text('用户名或密码错误');
-            $('.alert-danger').show()
+            $('.alert-danger').slideDown();
         }
     } else {
         $('.alert-danger').text('账号格式错误');
-        $('.alert-danger').show()
+        $('.alert-danger').slideDown();
     }
 }

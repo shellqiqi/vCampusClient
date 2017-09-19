@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>服务页</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mainboard.css" rel="stylesheet">
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">vCampusClient</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#">欢迎回来</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li id="setting"><a href="#">设置</a></li>
+                <li id="about"><a href="#">关于</a></li>
+                <li data-toggle="modal" data-target="#logoutModal"><a href="#">退出登录</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <!--侧边栏-->
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active" id="overView"><a href="#">总览</a></li>
+                <li id="userManageLink"><a href="#">用户管理</a></li>
+                <li id="studentManageLink"><a href="#">学生学籍管理</a></li>
+                <li id="courseLink"><a href="#">选课系统</a></li>
+                <li id="libraryLink"><a href="#">图书馆</a></li>
+                <li id="shopLink"><a href="#">商店</a></li>
+                <li id="dormitoryLink"><a href="#">宿舍管理</a></li>
+            </ul>
+        </div>
+        <!--主界面-->
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="main-board">
+
+        </div>
+    </div>
+</div>
+
+<!--登出确认对话框-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">警告</h4>
+            </div>
+            <div class="modal-body">
+                未提交的修改不会被保存
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger" id="logout">退出登陆</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="js/mainboard.js"></script>
+</html>

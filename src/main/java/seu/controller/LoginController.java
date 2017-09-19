@@ -19,10 +19,13 @@ public class LoginController {
     public int login(String account, String password, int role) {
         switch (role) {
             case 1:
+                MainController.role = 1;
                 return studentService.login(Integer.parseInt(account), password);
             case 2:
+                MainController.role = 2;
                 return teacherService.login(Integer.parseInt(account), password);
             case 3:
+                MainController.role = 3;
                 return adminService.login(Integer.parseInt(account), password);
             default:
                 return 0;
