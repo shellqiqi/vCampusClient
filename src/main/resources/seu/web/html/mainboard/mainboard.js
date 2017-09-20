@@ -1,8 +1,12 @@
 // 加载首页
 $(document).ready(function () {
     $('#main-board').load('welcome/welcome.html');
-    if (getUrlParam('role') === '1' || getUrlParam('role') === '2') {
+    var role = getUrlParam('role');
+    if (role === '1' || role === '2') {
         $('#userManageLink').hide();
+    }
+    if (role === '3') {
+        $('#studentRollManageLink').hide();
     }
 });
 
@@ -42,9 +46,9 @@ $('#userManageLink').click(function () {
     $('#main-board').load('usermanage/userManage.html');
 });
 
-$('#studentManageLink').click(function () {
+$('#studentRollManageLink').click(function () {
     removeSideActive();
-    $('#studentManageLink').addClass('active');
+    $('#studentRollManageLink').addClass('active');
     $('#main-board').load('studentrollmanage/studentRollManage.html');
 });
 

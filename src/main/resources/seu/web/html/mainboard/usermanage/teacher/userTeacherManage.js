@@ -1,8 +1,7 @@
 var json = userManageController.getAllTeacher();
 var objs = jQuery.parseJSON(json);
 var html = '';
-for (var i=0;i<objs.length;i++)
-{
+for (var i = 0; i < objs.length; i++) {
     html += '<tr><th>' + objs[i].teacherId;
     html += '</th><td>' + objs[i].teacherName;
     html += '</td><td>' + objs[i].teacherPhoneNumber;

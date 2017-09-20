@@ -51,7 +51,7 @@ public class MainController {
     private void loadController(JSObject jsObject) {
         jsObject.setMember("mainController", context.getBean("mainController"));
         jsObject.setMember("loginController", context.getBean("loginController"));
-        jsObject.setMember("overViewController", context.getBean("overViewController"));
         jsObject.setMember("userManageController", context.getBean("userManageController"));
+        jsObject.setMember("studentRollController", context.getBean("studentRollController"));
     }
 }
