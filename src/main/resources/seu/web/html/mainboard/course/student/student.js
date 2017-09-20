@@ -1,13 +1,13 @@
 $('#studentNoSelectedCourse').on('click', '.selectButton', function () {
     var dataItem = $.view(this).data;
-    if (courseController.addCourse(dataItem.courseId)) {
+    if (courseController.addCourseSelect(dataItem.courseId)) {
         $('#courseBoard').load('course/student/student.html');
     }
 });
 
 $('#studentSelectedCourse').on('click', '.deleteButton', function () {
     var dataItem = $.view(this).data;
-    if (courseController.deleteCourse(dataItem.courseId)) {
+    if (courseController.deleteCourseSelect(dataItem.courseId)) {
         $('#courseBoard').load('course/student/student.html');
     }
 });

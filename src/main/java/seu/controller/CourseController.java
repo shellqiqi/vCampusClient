@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import seu.domain.Course;
 import seu.service.CourseSelectService;
 import seu.service.CourseService;
+import seu.service.StudentService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +18,25 @@ public class CourseController {
     CourseSelectService courseSelectService;
     @Autowired
     CourseService courseService;
+    @Autowired
+    StudentService studentService;
 
     private Genson genson = new Genson();
 
     public String getAllCourse() {
         return genson.serialize(courseService.queryAll());
+    }
+
+    public String getAllCourseSelect() {
+        return genson.serialize(courseSelectService.getCourseSelectAll());
+    }
+
+    public String getCourse(int id) {
+        return genson.serialize(courseService.queryCourseByCourseId(id));
+    }
+
+    public String getStudent(int id) {
+        return genson.serialize(studentService.queryStudentByStudentId(id));
     }
 
     public String getSelectedCourse() {
@@ -45,11 +60,31 @@ public class CourseController {
         return genson.serialize(noSelected);
     }
 
-    public int addCourse(int id) {
+    public int addCourseSelect(int id) {
         return courseSelectService.insertCourseSelect(MainController.account, id);
     }
 
-    public int deleteCourse(int id) {
+    public int deleteCourseSelect(int id) {
         return courseSelectService.deleteCourseSelectByCourseIDAndStudentID(MainController.account, id);
+    }
+
+    public String getAllCourseByTeacherId() {
+        return genson.serialize(courseService.queryCourseByTeacherId(MainController.account));
+    }
+
+    public String getStudentByCourseId(int id) {
+        return genson.serialize(studentService.queryStudentByCourseId(id));
+    }
+
+    public int teacherDelectCourseSelect(int studentId, int courseId) {
+        return courseSelectService.deleteCourseSelectByCourseIDAndStudentID(studentId, courseId);
+    }
+
+    public int deleteCourseById(int id) {
+        return courseService.deleteCourse(id);
+    }
+
+    public int addCourse(int courseId, String courseName, int credit, int period, int teacherId) {
+        return courseService.insertCourse(new Course(courseId, courseName, credit, period, teacherId));
     }
 }

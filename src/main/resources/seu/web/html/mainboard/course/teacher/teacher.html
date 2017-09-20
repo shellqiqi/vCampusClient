@@ -1,0 +1,43 @@
+<div id="teacherCourseBoard"></div>
+
+<script id="teacherCourseTemplate" type="text/x-jsrender">
+{{for course}}
+<div class="panel panel-default">
+    <div class="panel-heading">{{:courseId}}</div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>课程编号</dt>
+            <dd>{{:courseId}}</dd>
+            <dt>课程名</dt>
+            <dd>{{:courseName}}</dd>
+            <dt>学分</dt>
+            <dd>{{:credit}}</dd>
+            <dt>学时</dt>
+            <dd>{{:period}}</dd>
+        </dl>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>账户</th>
+            <th>姓名</th>
+            <th>寝室号</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{for studentObjs}}
+        <tr>
+            <th scope="row">{{:studentId}}</th>
+            <td>{{:studentName}}</td>
+            <td>{{:dormitoryId}}</td>
+            <td><button type="button" class="btn btn-danger btn-sm deleteStudent">退课</button></td>
+        </tr>
+        {{/for}}
+        </tbody>
+    </table>
+</div>
+{{/for}}
+</script>
+
+<script src="course/teacher/teacher.js"></script>
