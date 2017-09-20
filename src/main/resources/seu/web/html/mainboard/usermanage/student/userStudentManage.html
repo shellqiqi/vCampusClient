@@ -8,7 +8,7 @@
         <th>账户余额</th>
     </tr>
     </thead>
-    <tbody id="studentTable">
+    <tbody id="infoTable">
     </tbody>
 </table>
 <script>
@@ -24,7 +24,19 @@
         html += '</td><td>' + objs[i].balance;
         html += '</td></tr>';
     }
-    $('#studentTable').html(html);
+    $('#infoTable').html(html);
+
+    $('#addStudentButton').click(function () {
+
+    });
+
+    $('#deleteStudentButton').click(function () {
+
+    });
+
+    $('#updateStudentButton').click(function () {
+
+    });
 </script>
 <!--增加-->
 <div class="modal fade" id="userAddModal" tabindex="-1" role="dialog">
@@ -67,7 +79,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">增加</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="addStudentButton">增加</button>
             </div>
         </div>
     </div>
@@ -91,7 +103,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-danger">删除</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" id="deleteStudentButton">删除</button>
             </div>
         </div>
     </div>
@@ -135,7 +147,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">更改</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="updateStudentButton">更改</button>
             </div>
         </div>
     </div>

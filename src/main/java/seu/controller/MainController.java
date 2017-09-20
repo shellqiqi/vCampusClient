@@ -32,7 +32,7 @@ public class MainController {
         if (!load) {
             load = true;
             WebEngine webEngine = webView.getEngine();
-            webEngine.load(getClass().getResource("/seu/web/login.html").toExternalForm());
+            webEngine.load(getClass().getResource("/seu/web/html/login/login.html").toExternalForm());
             webEngine.getLoadWorker().stateProperty().addListener((ObservableValue<? extends State> ov, State oldState, State newState) -> {
                 if (newState == State.SUCCEEDED) {
                     JSObject win = (JSObject) webEngine.executeScript("window");

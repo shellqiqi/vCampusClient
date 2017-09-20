@@ -7,11 +7,12 @@
 
     <title>服务页</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/mainboard.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="mainboard.css" rel="stylesheet">
 
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/util.js"></script>
 </head>
 
 <body>
@@ -25,12 +26,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">vCampusClient</a>
+            <a class="navbar-brand" href="#" id="vCampusClientBrand">vCampusClient</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-left">
-                <li><a href="#">欢迎回来</a></li>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li id="setting"><a href="#">设置</a></li>
                 <li id="about"><a href="#">关于</a></li>
@@ -45,7 +43,7 @@
         <!--侧边栏-->
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar" id="sidebar">
-                <li class="active" id="overView"><a href="#">总览</a></li>
+                <li class="active" id="welcome"><a href="#">欢迎回来</a></li>
                 <li id="userManageLink"><a href="#">用户管理</a></li>
                 <li id="studentManageLink"><a href="#">学生学籍管理</a></li>
                 <li id="courseLink"><a href="#">选课系统</a></li>
@@ -85,6 +83,5 @@
 
 </body>
 
-<script src="js/mainboard.js"></script>
-<script src="js/sidebar.js"></script>
+<script src="mainboard.js"></script>
 </html>

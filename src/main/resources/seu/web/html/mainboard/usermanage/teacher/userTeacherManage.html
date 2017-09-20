@@ -6,7 +6,7 @@
         <th>电话号码</th>
     </tr>
     </thead>
-    <tbody id="studentTable">
+    <tbody id="infoTable">
     </tbody>
 </table>
 <script>
@@ -20,7 +20,20 @@
         html += '</td><td>' + objs[i].teacherPhoneNumber;
         html += '</td></tr>';
     }
-    $('#studentTable').html(html);
+    $('#infoTable').html(html);
+
+
+    $('#addTeacherButton').click(function () {
+
+    });
+
+    $('#deleteTeacherButton').click(function () {
+
+    });
+
+    $('#updateTeacherButton').click(function () {
+
+    });
 </script>
 <!--增加-->
 <div class="modal fade" id="userAddModal" tabindex="-1" role="dialog">
@@ -53,7 +66,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">增加</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="addTeacherButton">增加</button>
             </div>
         </div>
     </div>
@@ -70,14 +83,14 @@
                 <p>教师没有取消班级、取消开课等情况下将删除失败</p>
                 <form>
                     <div class="form-group">
-                        <label for="inputDeleteStudentId">账户</label>
-                        <input type="number" class="form-control" id="inputDeleteStudentId" placeholder="账户">
+                        <label for="inputDeleteTeacherId">账户</label>
+                        <input type="number" class="form-control" id="inputDeleteTeacherId" placeholder="账户">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-danger">删除</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" id="deleteTeacherButton">删除</button>
             </div>
         </div>
     </div>
@@ -113,7 +126,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">更改</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="updateTeacherButton">更改</button>
             </div>
         </div>
     </div>
