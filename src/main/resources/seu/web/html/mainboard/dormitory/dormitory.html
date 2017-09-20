@@ -1,1 +1,35 @@
-<h1 class="page-header">宿舍</h1>
+<h1 class="page-header">宿舍分数公示</h1>
+<div id="dormitoryBoard"></div>
+<script id="dormitoryTemplate" type="text/x-jsrender">
+{{for course}}
+<div class="panel panel-default">
+    <div class="panel-heading">{{:dormitoryId}}</div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>寝室编号</dt>
+            <dd>{{:dormitoryId}}</dd>
+            <dt>分数</dt>
+            <dd>{{:score}}</dd>
+        </dl>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>账户</th>
+            <th>姓名</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{for studentObjs}}
+        <tr>
+            <th scope="row">{{:studentId}}</th>
+            <td>{{:studentName}}</td>
+        </tr>
+        {{/for}}
+        </tbody>
+    </table>
+</div>
+{{/for}}
+</script>
+
+<script src="dormitory/dormitory.js"></script>

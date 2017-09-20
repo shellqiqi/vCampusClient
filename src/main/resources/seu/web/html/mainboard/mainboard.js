@@ -6,7 +6,6 @@ $(document).ready(function () {
         $('#userManageLink').hide();
     }
     if (role === '2') {
-        $('#studentRollManageLink').hide();
         $('#userManageLink').hide();
         $('#libraryLink').hide();
         $('#shopLink').hide();
