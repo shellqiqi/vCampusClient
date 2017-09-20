@@ -2,11 +2,19 @@
 $(document).ready(function () {
     $('#main-board').load('welcome/welcome.html');
     var role = getUrlParam('role');
-    if (role === '1' || role === '2') {
+    if (role === '1') {
         $('#userManageLink').hide();
+    }
+    if (role === '2') {
+        $('#studentRollManageLink').hide();
+        $('#userManageLink').hide();
+        $('#libraryLink').hide();
+        $('#shopLink').hide();
     }
     if (role === '3') {
         $('#studentRollManageLink').hide();
+        $('#libraryLink').hide();
+        $('#shopLink').hide();
     }
 });
 

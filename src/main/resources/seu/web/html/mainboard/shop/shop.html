@@ -1,1 +1,59 @@
 <h1 class="page-header">商店</h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">商品列表</div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>商品编号</th>
+            <th>商品名</th>
+            <th>价格</th>
+            <th>库存量</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="shop">
+        </tbody>
+    </table>
+</div>
+
+<script id="shopTemplate" type="text/x-jsrender">
+    {^{for goods}}
+    <tr>
+        <th scope="row">{^{:commodityId}}</th>
+        <td>{^{:commodityName}}</td>
+        <td>{^{:prize}}</td>
+        <td>{^{:inventory}}</td>
+       <td><button type="button" class="btn btn-primary btn-sm buyButton">购买</button></td>
+    </tr>
+    {{/for}}
+</script>
+
+<!--增加-->
+<div class="modal fade" id="borrowModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">购买</h4>
+            </div>
+            <div class="modal-body">
+                <p>随便你填，现在只能一件一件买</p>
+                <form>
+                    <div class="form-group">
+                        <label for="inputQuantities">商品数量</label>
+                        <input type="number" class="form-control" id="inputQuantities" placeholder="商品数量">
+                    </div>
+                </form>
+                <div class="alert alert-danger" role="alert" id="addAlert" style="display: none">...</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="buyButton">购买</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="shop/shop.js"></script>

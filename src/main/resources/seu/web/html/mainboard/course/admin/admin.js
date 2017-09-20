@@ -35,7 +35,7 @@ $('#addCourse').click(function () {
 
 $('#courseAddModal').on('hidden.bs.modal', function () {
     $('#courseBoard').load('course/admin/admin.html');
-})
+});
 
 var courseSelectJson = courseController.getAllCourseSelect();
 var courseSelectObjs = jQuery.parseJSON(courseSelectJson);
