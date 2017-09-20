@@ -7,29 +7,6 @@
     <tbody id="infoTable">
     </tbody>
 </table>
-<script>
-    var json = userManageController.getAllAdmin();
-    var objs = jQuery.parseJSON(json);
-    var html = '';
-    for (var i=0;i<objs.length;i++)
-    {
-        html += '<tr><th>' + objs[i].adminId;
-        html += '</td></tr>';
-    }
-    $('#infoTable').html(html);
-
-    $('#addAdminButton').click(function () {
-
-    });
-
-    $('#deleteAdminButton').click(function () {
-
-    });
-
-    $('#updateAdminButton').click(function () {
-
-    });
-</script>
 <!--增加-->
 <div class="modal fade" id="userAddModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -39,6 +16,7 @@
                 <h4 class="modal-title">增加管理员</h4>
             </div>
             <div class="modal-body">
+                <p>如果您不是一号管理员，您无法添加其他管理员</p>
                 <p>请填写所有字段，重复账户名将添加失败</p>
                 <form>
                     <div class="form-group">
@@ -50,10 +28,11 @@
                         <input type="password" class="form-control" id="inputAddAdminPassword" placeholder="密码">
                     </div>
                 </form>
+                <div class="alert alert-danger" role="alert" id="addAlert" style="display: none">...</div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="addAdminButton">增加</button>
+                <button type="button" class="btn btn-primary" id="addAdminButton">增加</button>
             </div>
         </div>
     </div>
@@ -67,16 +46,19 @@
                 <h4 class="modal-title">删除管理员</h4>
             </div>
             <div class="modal-body">
+                <p>如果您不是一号管理员，您无法删除其他管理员</p>
+                <p>您无法删除自己</p>
                 <form>
                     <div class="form-group">
                         <label for="inputDeleteAdminId">账户</label>
                         <input type="number" class="form-control" id="inputDeleteAdminId" placeholder="账户">
                     </div>
                 </form>
+                <div class="alert alert-danger" role="alert" id="deleteAlert" style="display: none">...</div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" id="deleteAdminButton">删除</button>
+                <button type="button" class="btn btn-danger" id="deleteAdminButton">删除</button>
             </div>
         </div>
     </div>
@@ -90,7 +72,7 @@
                 <h4 class="modal-title">更改管理员信息</h4>
             </div>
             <div class="modal-body">
-                <p>修改对应账户的管理员信息</p>
+                <p>除一号管理员外，您只能修改您自己管理员信息</p>
                 <form>
                     <div class="form-group">
                         <label for="inputUpdateAdminId">账户</label>
@@ -101,11 +83,14 @@
                         <input type="password" class="form-control" id="inputUpdateAdminPassword" placeholder="密码">
                     </div>
                 </form>
+                <div class="alert alert-danger" role="alert" id="updateAlert" style="display: none">...</div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="updateAdminButton">更改</button>
+                <button type="button" class="btn btn-primary" id="updateAdminButton">更改</button>
             </div>
         </div>
     </div>
 </div>
+
+<script src="usermanage/admin/userAdminManage.js"></script>

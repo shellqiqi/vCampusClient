@@ -3,6 +3,7 @@ package seu.controller;
 import com.owlike.genson.Genson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import seu.Main;
 import seu.domain.Admin;
 import seu.domain.Student;
 import seu.domain.Teacher;
@@ -59,14 +60,20 @@ public class UserManageController {
     }
 
     public int addAdmin(int adminId, String password) {
+        if (MainController.account != 1)
+            return 0;
         return adminService.insertAdmin(new Admin(adminId, password));
     }
 
     public int deleteAdmin(int adminId) {
+        if (MainController.account == adminId || MainController.account != 1)
+            return 0;
         return adminService.deleteAdmin(adminId);
     }
 
     public int updateAdmin(int adminId, String password) {
-        return adminService.updateAdmin(new Admin(adminId, password));
+        if (MainController.account == adminId || MainController.account == 1)
+            return adminService.updateAdmin(new Admin(adminId, password));
+        return 0;
     }
 }

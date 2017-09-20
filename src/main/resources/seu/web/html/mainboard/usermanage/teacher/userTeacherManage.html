@@ -9,32 +9,6 @@
     <tbody id="infoTable">
     </tbody>
 </table>
-<script>
-    var json = userManageController.getAllTeacher();
-    var objs = jQuery.parseJSON(json);
-    var html = '';
-    for (var i=0;i<objs.length;i++)
-    {
-        html += '<tr><th>' + objs[i].teacherId;
-        html += '</th><td>' + objs[i].teacherName;
-        html += '</td><td>' + objs[i].teacherPhoneNumber;
-        html += '</td></tr>';
-    }
-    $('#infoTable').html(html);
-
-
-    $('#addTeacherButton').click(function () {
-
-    });
-
-    $('#deleteTeacherButton').click(function () {
-
-    });
-
-    $('#updateTeacherButton').click(function () {
-
-    });
-</script>
 <!--增加-->
 <div class="modal fade" id="userAddModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -44,7 +18,7 @@
                 <h4 class="modal-title">增加教师</h4>
             </div>
             <div class="modal-body">
-                <p>请填写所有字段，重复账户名将添加失败</p>
+                <p>请填写所有字段，不存在的关联值及重复账户名将添加失败</p>
                 <form>
                     <div class="form-group">
                         <label for="inputAddTeacherId">账户</label>
@@ -62,11 +36,12 @@
                         <label for="inputAddTeacherPassword">密码</label>
                         <input type="password" class="form-control" id="inputAddTeacherPassword" placeholder="密码">
                     </div>
+                    <div class="alert alert-danger" role="alert" id="addAlert" style="display: none">...</div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="addTeacherButton">增加</button>
+                <button type="button" class="btn btn-primary" id="addTeacherButton">增加</button>
             </div>
         </div>
     </div>
@@ -87,10 +62,11 @@
                         <input type="number" class="form-control" id="inputDeleteTeacherId" placeholder="账户">
                     </div>
                 </form>
+                <div class="alert alert-danger" role="alert" id="deleteAlert" style="display: none">...</div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" id="deleteTeacherButton">删除</button>
+                <button type="button" class="btn btn-danger" id="deleteTeacherButton">删除</button>
             </div>
         </div>
     </div>
@@ -123,11 +99,14 @@
                         <input type="password" class="form-control" id="inputUpdateTeacherPassword" placeholder="密码">
                     </div>
                 </form>
+                <div class="alert alert-danger" role="alert" id="updateAlert" style="display: none">...</div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="updateTeacherButton">更改</button>
+                <button type="button" class="btn btn-primary" id="updateTeacherButton">更改</button>
             </div>
         </div>
     </div>
 </div>
+
+<script src="usermanage/teacher/userTeacherManage.js"></script>
