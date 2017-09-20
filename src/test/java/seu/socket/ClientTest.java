@@ -12,8 +12,6 @@ import seu.domain.Dormitory;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Import(ApplicationContextConfig.class)

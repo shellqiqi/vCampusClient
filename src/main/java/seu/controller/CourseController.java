@@ -46,16 +46,16 @@ public class CourseController {
     public String getNoSelectedCourse() {
         List<Course> all = courseService.queryAll();
         List<Course> selected = courseService.queryCourseByStudentId(MainController.account);
-        List<Course> noSelected = new ArrayList<Course>();
-        for (int i = 0; i < all.size(); i++) {
+        List<Course> noSelected = new ArrayList<>();
+        for (Course anAll : all) {
             boolean contain = false;
-            for (int j = 0; j < selected.size(); j++) {
-                if (all.get(i).getCourseId() == selected.get(j).getCourseId()) {
+            for (Course aSelected : selected) {
+                if (anAll.getCourseId() == aSelected.getCourseId()) {
                     contain = true;
                 }
             }
             if (!contain)
-                noSelected.add(all.get(i));
+                noSelected.add(anAll);
         }
         return genson.serialize(noSelected);
     }

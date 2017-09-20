@@ -11,7 +11,7 @@ public class shopController {
     @Autowired
     ShopService shopService;
 
-    Genson genson = new Genson();
+    private Genson genson = new Genson();
 
     public String getAllGoods() {
         return genson.serialize(shopService.getCommodity());

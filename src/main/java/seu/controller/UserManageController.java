@@ -3,7 +3,6 @@ package seu.controller;
 import com.owlike.genson.Genson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import seu.Main;
 import seu.domain.Admin;
 import seu.domain.Student;
 import seu.domain.Teacher;
