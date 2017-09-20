@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+    <div class="panel-heading">未选课程</div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>课程编号</th>
+            <th>课程名</th>
+            <th>学分</th>
+            <th>学时</th>
+            <th>任课老师</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="studentNoSelectedCourse">
+        </tbody>
+    </table>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">已选课程</div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>课程编号</th>
+            <th>课程名</th>
+            <th>学分</th>
+            <th>学时</th>
+            <th>任课老师</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="studentSelectedCourse">
+        </tbody>
+    </table>
+</div>
+
+<script id="noSelectedTemplate" type="text/x-jsrender">
+    {^{for course}}
+    <tr>
+        <th scope="row">{^{:courseId}}</th>
+        <td>{^{:courseName}}</td>
+        <td>{^{:credit}}</td>
+        <td>{^{:period}}</td>
+        <td>{^{:teacherName}}</td>
+        <td><button type="button" class="btn btn-primary btn-sm selectButton">选课</button></td>
+    </tr>
+    {{/for}}
+</script>
+
+<script id="selectedTemplate" type="text/x-jsrender">
+    {{for course}}
+    <tr>
+        <th scope="row">{{:courseId}}</th>
+        <td>{{:courseName}}</td>
+        <td>{{:credit}}</td>
+        <td>{{:period}}</td>
+        <td>{{:teacherName}}</td>
+        <td><button type="button" class="btn btn btn-danger btn-sm deleteButton">退课</button></td>
+    </tr>
+    {{/for}}
+</script>
+
+<script src="course/student/student.js"></script>

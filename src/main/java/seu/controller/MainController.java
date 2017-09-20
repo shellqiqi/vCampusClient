@@ -53,5 +53,6 @@ public class MainController {
         jsObject.setMember("loginController", context.getBean("loginController"));
         jsObject.setMember("userManageController", context.getBean("userManageController"));
         jsObject.setMember("studentRollController", context.getBean("studentRollController"));
+        jsObject.setMember("courseController", context.getBean("courseController"));
     }
 }

@@ -90,3 +90,8 @@ $("#returnTop").click(function(){
     $('body,html').animate({scrollTop:0},200);
     return false;
 });
+
+// 取消侧边栏活跃状态
+function removeSideActive() {
+    $('#sidebar').children().filter('.active').removeClass('active');
+}

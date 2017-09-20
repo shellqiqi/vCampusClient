@@ -21,8 +21,8 @@ if (role === '1') {
         var studentObjs = jQuery.parseJSON(studentJson);
         app = {
             clazz: classObjs[i],
-            student: studentObjs,
-        }
+            student: studentObjs
+        };
         var html = $.templates('#teacherTemplate').render(app);
         $("#studentRollManage").append(html);
     }

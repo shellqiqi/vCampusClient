@@ -19,3 +19,8 @@ $('#userAdminManage').click(function () {
     $('#user-manage-board').load('usermanage/admin/userAdminManage.html');
     $('#userAdminManage').addClass('active');
 });
+
+// 取消用户管理导航栏活跃状态
+function removeUserManageNavActive() {
+    $('#UserManageNav').children().filter('.active').removeClass('active');
+}
