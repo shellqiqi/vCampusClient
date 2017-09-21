@@ -16,21 +16,26 @@ $('#addBook').click(function () {
     }
 });
 
-$('#deleteBook').click(function () {
-    var inputBookId = $('#inputDeleteBookId').val();
-    if (isAllNumber(inputBookId)) {
-        var flag = libraryController.deleteBook(inputBookId);
-        if (flag === 1) {
-            $('#deleteBookModal').modal('hide');
-            $('#deleteAlert').hide();
+$('#bookList').on('click', '.deleteBook', function () {
+    var dataItem = $.view(this).data;
+    $('#deleteBookModal').modal('show');
+    $('#inputDeleteBookId').val(dataItem.bookId);
+    $('#deleteBook').click(function () {
+        var inputBookId = $('#inputDeleteBookId').val();
+        if (isAllNumber(inputBookId)) {
+            var flag = libraryController.deleteBook(inputBookId);
+            if (flag === 1) {
+                $('#deleteBookModal').modal('hide');
+                $('#deleteAlert').hide();
+            } else {
+                $('#deleteAlert').text('删除失败');
+                $('#deleteAlert').slideDown();
+            }
         } else {
-            $('#deleteAlert').text('删除失败');
+            $('#deleteAlert').text('请填写所有字段且确保符合规范');
             $('#deleteAlert').slideDown();
         }
-    } else {
-        $('#deleteAlert').text('请填写所有字段且确保符合规范');
-        $('#deleteAlert').slideDown();
-    }
+    });
 });
 
 $('#addBookModal').on('hidden.bs.modal', function () {

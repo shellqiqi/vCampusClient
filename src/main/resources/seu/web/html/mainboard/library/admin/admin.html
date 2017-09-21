@@ -2,7 +2,6 @@
     <div class="panel-heading">书籍总表</div>
     <div class="panel-body">
         <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addBookModal">添加书籍</button>
-        <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#deleteBookModal">删除书籍</button>
     </div>
     <table class="table table-striped">
         <thead>
@@ -11,6 +10,7 @@
             <th>书名</th>
             <th>学生账号</th>
             <th>借书时间</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody id="bookList">
@@ -30,6 +30,7 @@
         <td>{^{:studentId}}</td>
         <td>{^{:dateStr}}</td>
         {{/if}}
+        <td><button type="button" class="btn btn-danger btn-block deleteBook">删除</button></td>
     </tr>
     {{/for}}
 </script>
