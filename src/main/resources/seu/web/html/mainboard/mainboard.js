@@ -12,7 +12,6 @@ $(document).ready(function () {
     }
     if (role === '3') {
         $('#studentRollManageLink').hide();
-        $('#libraryLink').hide();
         $('#shopLink').hide();
     }
 });
@@ -81,6 +80,12 @@ $('#dormitoryLink').click(function () {
     removeSideActive();
     $('#dormitoryLink').addClass('active');
     $('#main-board').load('dormitory/dormitory.html');
+});
+
+$('#internetLink').click(function () {
+    removeSideActive();
+    $('#internetLink').addClass('active');
+    $('#main-board').load('internet/internet.html');
 });
 
 // 返回顶部
