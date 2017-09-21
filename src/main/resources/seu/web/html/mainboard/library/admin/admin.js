@@ -1,10 +1,3 @@
-// $('#bookList').on('click', '.returnButton', function () {
-//     var dataItem = $.view(this).data;
-//     if (libraryController.returnBook(dataItem.bookId)) {
-//         $('#main-board').load('library/library.html');
-//     }
-// });
-
 $('#addBook').click(function () {
     var inputBookId = $('#inputAddBookId').val();
     var inputBookName = $('#inputAddBookName').val();
@@ -41,11 +34,11 @@ $('#deleteBook').click(function () {
 });
 
 $('#addBookModal').on('hidden.bs.modal', function () {
-    $('#main-board').load('library/admin/admin.html');
+    $('#libraryBoard').load('library/admin/admin.html');
 });
 
 $('#deleteBookModal').on('hidden.bs.modal', function () {
-    $('#main-board').load('library/admin/admin.html');
+    $('#libraryBoard').load('library/admin/admin.html');
 });
 
 var allBooksJson = libraryController.getAllBooks();

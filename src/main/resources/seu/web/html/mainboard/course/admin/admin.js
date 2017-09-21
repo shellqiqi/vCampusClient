@@ -1,14 +1,14 @@
 $('#adminSelectedCourse').on('click', '.deleteButton', function () {
     var dataItem = $.view(this).data;
     if (courseController.teacherDelectCourseSelect(dataItem.studentId, dataItem.courseId) === 1) {
-        $('#courseBoard').load('course/admin/admin.html');
+        $('#libraryBoard').load('course/admin/admin.html');
     }
 });
 
 $('#adminCourse').on('click', '.deleteButton', function () {
     var dataItem = $.view(this).data;
     if (courseController.deleteCourseById(dataItem.courseId) === 1) {
-        $('#courseBoard').load('course/admin/admin.html');
+        $('#libraryBoard').load('course/admin/admin.html');
     }
 });
 

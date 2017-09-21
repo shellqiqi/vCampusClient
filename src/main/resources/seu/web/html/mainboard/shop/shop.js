@@ -24,6 +24,3 @@ $('#shop').on('click', '.buyButton', function () {
 $('#borrowModal').on('hidden.bs.modal', function () {
     $('#main-board').load('shop/shop.html');
 });
-
-
-
