@@ -13,9 +13,12 @@ public class LibraryController {
 
     private Genson genson = new Genson();
 
-    //学生查询自己借的所有书
     public String getBorrowedBooks() {
         return genson.serialize(libraryService.getAllBookList(MainController.account));
+    }
+
+    public String getAvailableBooks() {
+        return genson.serialize(libraryService.getAllAvailableBook());
     }
 
     public String getAllBooks() {
@@ -30,7 +33,7 @@ public class LibraryController {
         return libraryService.deleteBook(bookId);
     }
 
-    public int borrowBook(int studentId, int bookId) {
+    public int borrowBook(int bookId) {
         return libraryService.borrowBook(MainController.account, bookId);
     }
 

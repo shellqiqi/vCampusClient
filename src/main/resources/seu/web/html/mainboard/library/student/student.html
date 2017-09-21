@@ -1,3 +1,53 @@
-<h2 class="sub-header">test</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">已借书籍</div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>书本编号</th>
+            <th>书名</th>
+            <th>借书时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="borrowed">
+        </tbody>
+    </table>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">可借书籍</div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>书本编号</th>
+            <th>书名</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="available">
+        </tbody>
+    </table>
+</div>
+
+<script id="borrowedTemplate" type="text/x-jsrender">
+    {^{for books}}
+    <tr>
+        <th scope="row">{^{:bookId}}</th>
+        <td>{^{:bookName}}</td>
+        <td>{^{:dateStr}}</td>
+        <td><button type="button" class="btn btn-primary btn-sm returnButton">还书</button></td>
+    </tr>
+    {{/for}}
+</script>
+
+<script id="availableTemplate" type="text/x-jsrender">
+    {{for books}}
+    <tr>
+        <th scope="row">{{:bookId}}</th>
+        <td>{{:bookName}}</td>
+        <td><button type="button" class="btn btn btn-danger btn-sm borrowButton">借书</button></td>
+    </tr>
+    {{/for}}
+</script>
 
 <script src="library/student/student.js"></script>

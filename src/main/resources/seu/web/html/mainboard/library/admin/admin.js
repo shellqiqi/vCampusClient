@@ -49,13 +49,13 @@ $('#deleteBookModal').on('hidden.bs.modal', function () {
 });
 
 var allBooksJson = libraryController.getAllBooks();
-var allBooksObjs = jQuery.parseJSON(allBooksJson);
+var borrowedObjs = jQuery.parseJSON(allBooksJson);
 var template = $.templates('#bookListTemplate');
-for (var i = 0; i < allBooksObjs.length; i++) {
-    bookDate = new Date(allBooksObjs[i].startDate);
-    allBooksObjs[i].dateStr = bookDate.toLocaleDateString();
+for (var i = 0; i < borrowedObjs.length; i++) {
+    bookDate = new Date(borrowedObjs[i].startDate);
+    borrowedObjs[i].dateStr = bookDate.toLocaleDateString();
 }
 var app = {
-    books: allBooksObjs
+    books: borrowedObjs
 };
 template.link('#bookList', app);
