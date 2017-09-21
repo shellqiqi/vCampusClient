@@ -1,0 +1,16 @@
+<div id="studentRollManage"></div>
+<script id="studentTemplate" type="text/x-jsrender">
+    <dl class="dl-horizontal">
+    {{for student}}<dt>账户</dt><dd>
+    {{:studentId}}</dd><dt>姓名</dt><dd>
+    {{:studentName}}</dd><dt>寝室号</dt><dd>
+    {{:dormitoryId}}</dd><dt>账户余额</dt><dd>
+    {{:balance}}</dd><dt>班级编号</dt><dd>
+    {{:classId}}</dd><dt>班级名称</dt><dd>{{/for}}
+    {{for clazz}}{{:className}}</dd><dt>专业</dt><dd>
+    {{:major}}</dd><dt>班主任</dt><dd>{{/for}}
+    {{for teacher}}{{:teacherName}}</dd><dt>联系方式</dt><dd>
+    {{:teacherPhoneNumber}}</dd>{{/for}}
+    </dl>
+</script>
+<script src="studentrollmanage/student/student.js"></script>

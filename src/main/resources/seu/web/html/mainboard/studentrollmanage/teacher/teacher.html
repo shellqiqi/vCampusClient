@@ -1,0 +1,39 @@
+<div id="studentRollManage"></div>
+<script id="teacherTemplate" type="text/x-jsrender">
+    {{for clazz}}
+    <div class="panel panel-default">
+        <div class="panel-heading">{{:classId}}</div>
+        <div class="panel-body">
+            <dl class="dl-horizontal">
+                <dt>班级编号</dt>
+                <dd>{{:classId}}</dd>
+                <dt>班级名称</dt>
+                <dd>{{:className}}</dd>
+                <dt>班级专业</dt>
+                <dd>{{:major}}</dd>
+                <dt>班级人数</dt>
+                <dd>{{:classSize}}</dd>
+            </dl>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>账户</th>
+                <th>姓名</th>
+                <th>寝室号</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{for student}}
+            <tr>
+                <th scope="row">{{:studentId}}</th>
+                <td>{{:studentName}}</td>
+                <td>{{:dormitoryId}}</td>
+            </tr>
+            {{/for}}
+            </tbody>
+        </table>
+    </div>
+    {{/for}}
+</script>
+<script src="studentrollmanage/teacher/teacher.js"></script>

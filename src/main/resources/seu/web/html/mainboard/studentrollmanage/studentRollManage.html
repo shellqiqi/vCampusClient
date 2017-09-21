@@ -1,56 +1,5 @@
 <h1 class="page-header">学生学籍</h1>
-<div id="studentRollManage"></div>
 
-<script id="studentTemplate" type="text/x-jsrender">
-    <dl class="dl-horizontal">
-    {{for student}}<dt>账户</dt><dd>
-    {{:studentId}}</dd><dt>姓名</dt><dd>
-    {{:studentName}}</dd><dt>寝室号</dt><dd>
-    {{:dormitoryId}}</dd><dt>账户余额</dt><dd>
-    {{:balance}}</dd><dt>班级编号</dt><dd>
-    {{:classId}}</dd><dt>班级名称</dt><dd>{{/for}}
-    {{for clazz}}{{:className}}</dd><dt>专业</dt><dd>
-    {{:major}}</dd><dt>班主任</dt><dd>{{/for}}
-    {{for teacher}}{{:teacherName}}</dd><dt>联系方式</dt><dd>
-    {{:teacherPhoneNumber}}</dd>{{/for}}
-    </dl>
-</script>
-<script id="teacherTemplate" type="text/x-jsrender">
-    <div class="panel panel-default">
-        {{for clazz}}
-        <div class="panel-heading">{{:classId}}</div>
-        <div class="panel-body">
-            <dl class="dl-horizontal">
-                <dt>班级编号</dt>
-                <dd>{{:classId}}</dd>
-                <dt>班级名称</dt>
-                <dd>{{:className}}</dd>
-                <dt>班级专业</dt>
-                <dd>{{:major}}</dd>
-                <dt>班级人数</dt>
-                <dd>{{:classSize}}</dd>
-            </dl>
-        </div>
-        {{/for}}
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>账户</th>
-                <th>姓名</th>
-                <th>寝室号</th>
-            </tr>
-            </thead>
-            <tbody>
-            {{for student}}
-            <tr>
-                <th scope="row">{{:studentId}}</th>
-                <td>{{:studentName}}</td>
-                <td>{{:dormitoryId}}</td>
-            </tr>
-            {{/for}}
-            </tbody>
-        </table>
-    </div>
-</script>
+<div id="studentRollBoard"></div>
 
 <script src="studentrollmanage/studentRollManage.js" ></script>
