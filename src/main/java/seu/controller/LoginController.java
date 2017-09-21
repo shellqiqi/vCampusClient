@@ -17,19 +17,24 @@ public class LoginController {
     private AdminService adminService;
 
     public int login(String account, String password, int role) {
-        MainController.account = Integer.parseInt(account);
-        switch (role) {
-            case 1:
-                MainController.role = 1;
-                return studentService.login(MainController.account, password);
-            case 2:
-                MainController.role = 2;
-                return teacherService.login(MainController.account, password);
-            case 3:
-                MainController.role = 3;
-                return adminService.login(MainController.account, password);
-            default:
-                return 0;
+        try {
+            MainController.account = Integer.parseInt(account);
+            switch (role) {
+                case 1:
+                    MainController.role = 1;
+                    return studentService.login(MainController.account, password);
+                case 2:
+                    MainController.role = 2;
+                    return teacherService.login(MainController.account, password);
+                case 3:
+                    MainController.role = 3;
+                    return adminService.login(MainController.account, password);
+                default:
+                    return 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
         }
     }
 
