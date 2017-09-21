@@ -23,10 +23,6 @@ $('#addAdminButton').click(function () {
     }
 });
 
-$('#userAddModal').on('hidden.bs.modal', function () {
-    $('#user-manage-board').load('usermanage/admin/userAdminManage.html');
-});
-
 $('#infoTable').on('click', '.deleteButton', function () {
     var dataItem = $.view(this).data;
     $('#userDeleteModal').modal('show');
@@ -47,10 +43,6 @@ $('#infoTable').on('click', '.deleteButton', function () {
             $('#deleteAlert').slideDown();
         }
     });
-});
-
-$('#userDeleteModal').on('hidden.bs.modal', function () {
-    $('#user-manage-board').load('usermanage/admin/userAdminManage.html');
 });
 
 $('#infoTable').on('click', '.updateButton', function () {
@@ -77,6 +69,12 @@ $('#infoTable').on('click', '.updateButton', function () {
     });
 });
 
+$('#userAddModal').on('hidden.bs.modal', function () {
+    $('#user-manage-board').load('usermanage/admin/userAdminManage.html');
+});
+$('#userDeleteModal').on('hidden.bs.modal', function () {
+    $('#user-manage-board').load('usermanage/admin/userAdminManage.html');
+});
 $('#userUpdateModal').on('hidden.bs.modal', function () {
     $('#user-manage-board').load('usermanage/admin/userAdminManage.html');
 });

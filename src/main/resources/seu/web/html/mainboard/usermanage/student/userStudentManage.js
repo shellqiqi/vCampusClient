@@ -1,15 +1,9 @@
-var json = userManageController.getAllStudent();
-var objs = jQuery.parseJSON(json);
-var html = '';
-for (var i = 0; i < objs.length; i++) {
-    html += '<tr><th>' + objs[i].studentId;
-    html += '</th><td>' + objs[i].studentName;
-    html += '</td><td>' + objs[i].classId;
-    html += '</td><td>' + objs[i].dormitoryId;
-    html += '</td><td>' + objs[i].balance;
-    html += '</td></tr>';
-}
-$('#infoTable').html(html);
+var infoObjs = jQuery.parseJSON(userManageController.getAllStudent());
+var template = $.templates('#infoTemplate');
+var app = {
+    info: infoObjs
+};
+template.link('#infoTable', app);
 
 $('#addStudentButton').click(function () {
     var studentId = $('#inputAddStudentId').val();
@@ -33,41 +27,66 @@ $('#addStudentButton').click(function () {
     }
 });
 
-$('#deleteStudentButton').click(function () {
-    var studentId = $('#inputDeleteStudentId').val();
-    if (isAllNumber(studentId)) {
-        var flag = userManageController.deleteStudent(studentId);
-        if (flag === 1) {
-            $('#userDeleteModal').modal('hide')
-            $('#deleteAlert').hide();
+$('#infoTable').on('click', '.deleteButton', function () {
+    var dataItem = $.view(this).data;
+    $('#userDeleteModal').modal('show');
+    $('#inputDeleteStudentId').val(dataItem.studentId);
+    $('#deleteStudentButton').click(function () {
+        var studentId = $('#inputDeleteStudentId').val();
+        if (isAllNumber(studentId)) {
+            var flag = userManageController.deleteStudent(studentId);
+            if (flag === 1) {
+                $('#userDeleteModal').modal('hide')
+                $('#deleteAlert').hide();
+            } else {
+                $('#deleteAlert').text('删除失败');
+                $('#deleteAlert').slideDown();
+            }
         } else {
-            $('#deleteAlert').text('删除失败');
+            $('#deleteAlert').text('请确保符合规范');
             $('#deleteAlert').slideDown();
         }
-    } else {
-        $('#deleteAlert').text('请确保符合规范');
-        $('#deleteAlert').slideDown();
-    }
+    });
 });
 
-$('#updateStudentButton').click(function () {
-    var studentId = $('#inputUpdateStudentId').val();
-    var studentName = $('#inputUpdateStudentName').val();
-    var studentClassId = $('#inputUpdateStudentClassId').val();
-    var studentDormitoryId = $('#inputUpdateStudentDormitoryId').val();
-    var studentBalance = $('#inputUpdateStudentBalance').val();
-    var studentPassword = $('#inputUpdateStudentPassword').val();
-    if (isAllNumber(studentId) && studentName !== '' && isAllNumber(studentClassId) && isAllNumber(studentDormitoryId) && isAllNumber(studentBalance) && studentPassword !== '') {
-        var flag = userManageController.updateStudent(studentId, studentName, studentClassId, studentDormitoryId, studentBalance, studentPassword);
-        if (flag === 1) {
-            $('#userUpdateModal').modal('hide')
-            $('#updateAlert').hide();
+$('#infoTable').on('click', '.updateButton', function () {
+    var dataItem = $.view(this).data;
+    $('#userUpdateModal').modal('show');
+    $('#inputUpdateStudentId').val(dataItem.studentId);
+    $('#inputUpdateStudentName').val(dataItem.studentName);
+    $('#inputUpdateStudentClassId').val(dataItem.classId);
+    $('#inputUpdateStudentDormitoryId').val(dataItem.dormitoryId);
+    $('#inputUpdateStudentBalance').val(dataItem.balance);
+    $('#inputUpdateStudentPassword').val(dataItem.password);
+    $('#updateStudentButton').click(function () {
+        var studentId = $('#inputUpdateStudentId').val();
+        var studentName = $('#inputUpdateStudentName').val();
+        var studentClassId = $('#inputUpdateStudentClassId').val();
+        var studentDormitoryId = $('#inputUpdateStudentDormitoryId').val();
+        var studentBalance = $('#inputUpdateStudentBalance').val();
+        var studentPassword = $('#inputUpdateStudentPassword').val();
+        if (isAllNumber(studentId) && studentName !== '' && isAllNumber(studentClassId) && isAllNumber(studentDormitoryId) && isAllNumber(studentBalance) && studentPassword !== '') {
+            var flag = userManageController.updateStudent(studentId, studentName, studentClassId, studentDormitoryId, studentBalance, studentPassword);
+            if (flag === 1) {
+                $('#userUpdateModal').modal('hide')
+                $('#updateAlert').hide();
+            } else {
+                $('#updateAlert').text('修改失败');
+                $('#updateAlert').slideDown();
+            }
         } else {
-            $('#updateAlert').text('修改失败');
+            $('#updateAlert').text('请填写所有字段且确保符合规范');
             $('#updateAlert').slideDown();
         }
-    } else {
-        $('#updateAlert').text('请填写所有字段且确保符合规范');
-        $('#updateAlert').slideDown();
-    }
+    });
+});
+
+$('#userAddModal').on('hidden.bs.modal', function () {
+    $('#user-manage-board').load('usermanage/student/userStudentManage.html');
+});
+$('#userDeleteModal').on('hidden.bs.modal', function () {
+    $('#user-manage-board').load('usermanage/student/userStudentManage.html');
+});
+$('#userUpdateModal').on('hidden.bs.modal', function () {
+    $('#user-manage-board').load('usermanage/student/userStudentManage.html');
 });

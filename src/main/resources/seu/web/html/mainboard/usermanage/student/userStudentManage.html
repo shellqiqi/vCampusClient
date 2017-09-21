@@ -6,11 +6,28 @@
         <th>班级编号</th>
         <th>寝室号</th>
         <th>账户余额</th>
+        <th>修改</th>
+        <th>删除</th>
     </tr>
     </thead>
     <tbody id="infoTable">
     </tbody>
 </table>
+
+<script id="infoTemplate" type="text/x-jsrender">
+    {^{for info}}
+    <tr>
+        <th scope="row">{^{:studentId}}</th>
+        <td>{^{:studentName}}</td>
+        <td>{^{:classId}}</td>
+        <td>{^{:dormitoryId}}</td>
+        <td>{^{:balance}}</td>
+        <td><button type="button" class="btn btn-primary btn-sm updateButton">修改</button></td>
+        <td><button type="button" class="btn btn-danger btn-sm deleteButton">删除</button></td>
+    </tr>
+    {{/for}}
+</script>
+
 <!--增加-->
 <div class="modal fade" id="userAddModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
