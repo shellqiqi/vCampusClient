@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import seu.service.ShopService;
 
 @Controller
-public class shopController {
+public class ShopController {
 
     @Autowired
     ShopService shopService;
