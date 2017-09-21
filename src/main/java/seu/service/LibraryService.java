@@ -42,6 +42,11 @@ public class LibraryService {
         return (List<Library>) client.send(new ClientRequest(serviceName, "getAllBookList", new Class[]{int.class}, new Object[]{studentID})).getData();
     }
 
+    //管理员根据bookID,bookName增加图书
+    public int insertBook(int bookID,String bookName){
+        return (int) client.send(new ClientRequest(serviceName,"insertBook",new Class[]{int.class,String.class},new Object[]{bookID,bookName})).getData();
+    }
+
     //管理员删除借书记录，以及图书
     public int deleteBook(int bookID) {
         return (int) client.send(new ClientRequest(serviceName, "deleteBook", new Class[]{int.class}, new Object[]{bookID})).getData();
@@ -64,6 +69,11 @@ public class LibraryService {
     //管理员更新图书信息
     public int updateBook(Library book) {
         return (int) client.send(new ClientRequest(serviceName, "updateBook", new Class[]{Library.class}, new Object[]{book})).getData();
+    }
+
+    //学生获取所有可以借的书
+    public List<Library> getAllAvailableBook(){
+        return (List<Library>) client.send(new ClientRequest(serviceName, "getAllAvailableBook")).getData();
     }
 
     //管理员获取所有学生所借图书全部信息
