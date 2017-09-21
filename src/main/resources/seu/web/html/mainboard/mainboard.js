@@ -12,7 +12,6 @@ $(document).ready(function () {
     }
     if (role === 3) {
         $('#studentRollManageLink').hide();
-        $('#shopLink').hide();
     }
 });
 
