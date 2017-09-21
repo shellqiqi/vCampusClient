@@ -1,13 +1,9 @@
-var json = userManageController.getAllTeacher();
-var objs = jQuery.parseJSON(json);
-var html = '';
-for (var i = 0; i < objs.length; i++) {
-    html += '<tr><th>' + objs[i].teacherId;
-    html += '</th><td>' + objs[i].teacherName;
-    html += '</td><td>' + objs[i].teacherPhoneNumber;
-    html += '</td></tr>';
-}
-$('#infoTable').html(html);
+var infoObjs = jQuery.parseJSON(userManageController.getAllTeacher());
+var template = $.templates('#infoTemplate');
+var app = {
+    info: infoObjs
+};
+template.link('#infoTable', app);
 
 $('#addTeacherButton').click(function () {
     var teacherId = $('#inputAddTeacherId').val();
@@ -29,39 +25,64 @@ $('#addTeacherButton').click(function () {
     }
 });
 
-$('#deleteTeacherButton').click(function () {
-    var teacherId = $('#inputDeleteTeacherId').val();
-    if (isAllNumber(teacherId)) {
-        var flag = userManageController.deleteTeacher(teacherId);
-        if (flag === 1) {
-            $('#userDeleteModal').modal('hide')
-            $('#deleteAlert').hide();
+$('#infoTable').on('click', '.deleteButton', function () {
+    var dataItem = $.view(this).data;
+    $('#userDeleteModal').modal('show');
+    $('#inputDeleteTeacherId').val(dataItem.teacherId);
+    $('#deleteTeacherButton').click(function () {
+        var teacherId = $('#inputDeleteTeacherId').val();
+        if (isAllNumber(teacherId)) {
+            var flag = userManageController.deleteTeacher(teacherId);
+            if (flag === 1) {
+                $('#userDeleteModal').modal('hide')
+                $('#deleteAlert').hide();
+            } else {
+                $('#deleteAlert').text('删除失败');
+                $('#deleteAlert').slideDown();
+            }
         } else {
-            $('#deleteAlert').text('删除失败');
+            $('#deleteAlert').text('请确保符合规范');
             $('#deleteAlert').slideDown();
         }
-    } else {
-        $('#deleteAlert').text('请确保符合规范');
-        $('#deleteAlert').slideDown();
-    }
+    });
 });
 
-$('#updateTeacherButton').click(function () {
-    var teacherId = $('#inputUpdateTeacherId').val();
-    var teacherName = $('#inputUpdateTeacherName').val();
-    var teacherPhoneNumber = $('#inputUpdateTeacherPhoneNumber').val();
-    var teacherPassword = $('#inputUpdateTeacherPassword').val();
-    if (isAllNumber(teacherId) && teacherName !== '' && isAllNumber(teacherPhoneNumber) && teacherPassword !== '') {
-        var flag = userManageController.updateTeacher(teacherId, teacherName, teacherPhoneNumber, teacherPassword);
-        if (flag === 1) {
-            $('#userUpdateModal').modal('hide')
-            $('#updateAlert').hide();
+$('#infoTable').on('click', '.updateButton', function () {
+    var dataItem = $.view(this).data;
+    $('#userUpdateModal').modal('show');
+
+    $('#inputUpdateTeacherId').val(dataItem.teacherId);
+    $('#inputUpdateTeacherName').val(dataItem.teacherName);
+    $('#inputUpdateTeacherPhoneNumber').val(dataItem.teacherPhoneNumber);
+    $('#inputUpdateTeacherPassword').val(dataItem.password);
+    
+    $('#updateTeacherButton').click(function () {
+        var teacherId = $('#inputUpdateTeacherId').val();
+        var teacherName = $('#inputUpdateTeacherName').val();
+        var teacherPhoneNumber = $('#inputUpdateTeacherPhoneNumber').val();
+        var teacherPassword = $('#inputUpdateTeacherPassword').val();
+        if (isAllNumber(teacherId) && teacherName !== '' && isAllNumber(teacherPhoneNumber) && teacherPassword !== '') {
+            var flag = userManageController.updateTeacher(teacherId, teacherName, teacherPhoneNumber, teacherPassword);
+            if (flag === 1) {
+                $('#userUpdateModal').modal('hide')
+                $('#updateAlert').hide();
+            } else {
+                $('#updateAlert').text('修改失败');
+                $('#updateAlert').slideDown();
+            }
         } else {
-            $('#updateAlert').text('修改失败');
+            $('#updateAlert').text('请填写所有字段且确保符合规范');
             $('#updateAlert').slideDown();
         }
-    } else {
-        $('#updateAlert').text('请填写所有字段且确保符合规范');
-        $('#updateAlert').slideDown();
-    }
+    });
+});
+
+$('#userAddModal').on('hidden.bs.modal', function () {
+    $('#user-manage-board').load('usermanage/teacher/userTeacherManage.html');
+});
+$('#userDeleteModal').on('hidden.bs.modal', function () {
+    $('#user-manage-board').load('usermanage/teacher/userTeacherManage.html');
+});
+$('#userUpdateModal').on('hidden.bs.modal', function () {
+    $('#user-manage-board').load('usermanage/teacher/userTeacherManage.html');
 });
