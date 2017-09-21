@@ -1,5 +1,5 @@
-var role = getUrlParam('role');
-if (role === '1') {
+var role = mainController.getRole();
+if (role === 1) {
     var studentJson = studentRollController.getStudentById();
     var studentObj = jQuery.parseJSON(studentJson);
     var classJson = studentRollController.getClassById();
@@ -13,7 +13,7 @@ if (role === '1') {
     };
     var html = $.templates('#studentTemplate').render(app);
     $("#studentRollManage").html(html);
-} else if (role === '2') {
+} else if (role === 2) {
     var classJson = studentRollController.getClassByTeacherId();
     var classObjs = jQuery.parseJSON(classJson);
     for (var i = 0; i < classObjs.length; i++) {

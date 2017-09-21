@@ -1,16 +1,16 @@
 // 加载首页
 $(document).ready(function () {
     $('#main-board').load('welcome/welcome.html');
-    var role = getUrlParam('role');
-    if (role === '1') {
+    var role = mainController.getRole();
+    if (role === 1) {
         $('#userManageLink').hide();
     }
-    if (role === '2') {
+    if (role === 2) {
         $('#userManageLink').hide();
         $('#libraryLink').hide();
         $('#shopLink').hide();
     }
-    if (role === '3') {
+    if (role === 3) {
         $('#studentRollManageLink').hide();
         $('#shopLink').hide();
     }
@@ -80,12 +80,6 @@ $('#dormitoryLink').click(function () {
     removeSideActive();
     $('#dormitoryLink').addClass('active');
     $('#main-board').load('dormitory/dormitory.html');
-});
-
-$('#internetLink').click(function () {
-    removeSideActive();
-    $('#internetLink').addClass('active');
-    $('#main-board').load('internet/internet.html');
 });
 
 // 返回顶部

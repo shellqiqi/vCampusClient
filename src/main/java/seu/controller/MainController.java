@@ -48,6 +48,14 @@ public class MainController {
         }
     }
 
+    public int getRole() {
+        return role;
+    }
+
+    public int getAccount() {
+        return account;
+    }
+
     private void loadController(JSObject jsObject) {
         jsObject.setMember("mainController", context.getBean("mainController"));
         jsObject.setMember("loginController", context.getBean("loginController"));
