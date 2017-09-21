@@ -1,7 +1,7 @@
 function submitForm() {
     var account = $('#inputAccount').val();
     var password = $('#inputPassword').val();
-    var role = $('#inputRole').val();
+    var role = $("input[name='options']:checked").val();
     if (isAllNumber(account)) {
         var login = loginController.login(account, password, role);
         if (login === 1) {

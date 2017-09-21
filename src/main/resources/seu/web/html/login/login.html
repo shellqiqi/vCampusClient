@@ -21,15 +21,23 @@
     <form class="signPanel">
         <h2 class="signHeading">vCampusClient</h2>
         <label for="inputAccount" class="sr-only">账号</label>
-        <input type="number" id="inputAccount" class="form-control" placeholder="账号" required autofocus>
+        <input type="number" id="inputAccount" class="form-control form-radius" placeholder="账号" required autofocus>
         <label for="inputPassword" class="sr-only">密码</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="密码" required>
-        <label for="inputRole" class="sr-only">角色</label>
-        <select class="form-control" id="inputRole">
-            <option value="1">学生</option>
-            <option value="2">老师</option>
-            <option value="3">管理员</option>
-        </select>
+        <input type="password" id="inputPassword" class="form-control form-radius" placeholder="密码" required>
+        <div class="text-center btn-group-center">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default btn-lg btn-width active">
+                    <input type="radio" name="options" id="option1" value="1" autocomplete="off" checked>学生
+                </label>
+                <label class="btn btn-default btn-lg btn-width">
+                    <input type="radio" name="options" id="option2" value="2" autocomplete="off">老师
+                </label>
+                <label class="btn btn-default btn-lg btn-width">
+                    <input type="radio" name="options" id="option3" value="3" autocomplete="off">管理员
+                </label>
+            </div>
+
+        </div>
         <button class="btn btn-lg btn-primary btn-block" type="button" onclick="submitForm()">登录</button>
         <div class="alert alert-danger form-control" role="alert" style="display: none;"></div>
     </form>
