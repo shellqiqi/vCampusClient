@@ -1,1 +1,137 @@
-<h2 class="sub-header">管理员</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">商品列表</div>
+    <div class="panel-body">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#goodsAddModal">添加商品</button>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>商品编号</th>
+            <th>商品名</th>
+            <th>价格</th>
+            <th>库存量</th>
+            <th>修改</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody id="shop">
+        </tbody>
+    </table>
+</div>
+
+<script id="shopTemplate" type="text/x-jsrender">
+    {^{for goods}}
+    <tr>
+        <th scope="row">{^{:commodityId}}</th>
+        <td>{^{:commodityName}}</td>
+        <td>{^{:prize}}</td>
+        <td>{^{:inventory}}</td>
+        <td><button type="button" class="btn btn-primary btn-sm updateButton">修改</button></td>
+        <td><button type="button" class="btn btn-danger btn-sm deleteButton">删除</button></td>
+    </tr>
+    {{/for}}
+</script>
+
+<!--增加-->
+<div class="modal fade" id="goodsAddModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">添加商品</h4>
+            </div>
+            <div class="modal-body">
+                <p>请填写所有字段，重复商品编号将添加失败</p>
+                <form>
+                    <div class="form-group">
+                        <label for="inputAddCommodityId">商品编号</label>
+                        <input type="number" class="form-control" id="inputAddCommodityId" placeholder="商品编号">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddCommodityName">商品名</label>
+                        <input type="text" class="form-control" id="inputAddCommodityName" placeholder="商品名">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddPrize">价格</label>
+                        <input type="number" class="form-control" id="inputAddPrize" placeholder="价格">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddInventory">库存</label>
+                        <input type="number" class="form-control" id="inputAddInventory" placeholder="库存">
+                    </div>
+                </form>
+                <div class="alert alert-danger" role="alert" id="addAlert" style="display: none">...</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="addGoodsButton">增加</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--删除-->
+<div class="modal fade" id="goodsDeleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">删除商品</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="inputDeleteCommodityId">商品编号</label>
+                        <input type="number" class="form-control" id="inputDeleteCommodityId" placeholder="商品编号">
+                    </div>
+                </form>
+                <div class="alert alert-danger" role="alert" id="deleteAlert" style="display: none">...</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger" id="deleteGoodsButton">删除</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改-->
+<div class="modal fade" id="goodsUpdateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">更改商品信息</h4>
+            </div>
+            <div class="modal-body">
+                <p>修改对应商品编号的商品信息</p>
+                <form>
+                    <div class="form-group">
+                        <label for="inputUpdateCommodityId">商品编号</label>
+                        <input type="number" class="form-control" id="inputUpdateCommodityId" placeholder="商品编号">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUpdateCommodityName">商品名</label>
+                        <input type="text" class="form-control" id="inputUpdateCommodityName" placeholder="商品名">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUpdatePrize">价格</label>
+                        <input type="number" class="form-control" id="inputUpdatePrize" placeholder="价格">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUpdateInventory">库存</label>
+                        <input type="number" class="form-control" id="inputUpdateInventory" placeholder="库存">
+                    </div>
+                </form>
+                <div class="alert alert-danger" role="alert" id="updateAlert" style="display: none">...</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="updateGoodsButton">更改</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="shop/admin/admin.js"></script>

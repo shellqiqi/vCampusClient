@@ -37,8 +37,7 @@ $('#courseAddModal').on('hidden.bs.modal', function () {
     $('#courseBoard').load('course/admin/admin.html');
 });
 
-var courseSelectJson = courseController.getAllCourseSelect();
-var courseSelectObjs = jQuery.parseJSON(courseSelectJson);
+var courseSelectObjs = jQuery.parseJSON(courseController.getAllCourseSelect());
 var template1 = $.templates('#courseSelectTemplate');
 for (var i = 0; i < courseSelectObjs.length; i++) {
     courseSelectObjs[i].studentName = jQuery.parseJSON(courseController.getStudent(courseSelectObjs[i].studentId)).studentName;
@@ -49,8 +48,7 @@ var app1 = {
 };
 template1.link('#adminSelectedCourse', app1);
 
-var courseJson = courseController.getAllCourse();
-var courseObjs = jQuery.parseJSON(courseJson);
+var courseObjs = jQuery.parseJSON(courseController.getAllCourse());
 var template2 = $.templates('#courseTemplate');
 for (var i = 0; i < courseObjs.length; i++) {
     courseObjs[i].teacherName = jQuery.parseJSON(studentRollController.getTeacherById(courseObjs[i].teacherId)).teacherName;

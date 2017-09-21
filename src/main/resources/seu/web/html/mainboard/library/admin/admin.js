@@ -41,8 +41,7 @@ $('#deleteBookModal').on('hidden.bs.modal', function () {
     $('#libraryBoard').load('library/admin/admin.html');
 });
 
-var allBooksJson = libraryController.getAllBooks();
-var borrowedObjs = jQuery.parseJSON(allBooksJson);
+var borrowedObjs = jQuery.parseJSON(libraryController.getAllBooks());
 var template = $.templates('#bookListTemplate');
 for (var i = 0; i < borrowedObjs.length; i++) {
     bookDate = new Date(borrowedObjs[i].startDate);

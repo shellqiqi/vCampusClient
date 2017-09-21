@@ -7,8 +7,7 @@ $('#teacherCourseBoard').on('click', '.deleteStudent', function () {
     }
 });
 
-var teacherCourseJson = courseController.getAllCourseByTeacherId();
-var teacherCourseObjs = jQuery.parseJSON(teacherCourseJson);
+var teacherCourseObjs = jQuery.parseJSON(courseController.getAllCourseByTeacherId());
 var template = $.templates('#teacherCourseTemplate');
 for (var i = 0; i < teacherCourseObjs.length; i++) {
     teacherCourseObjs[i].studentObjs = jQuery.parseJSON(courseController.getStudentByCourseId(teacherCourseObjs[i].courseId));
