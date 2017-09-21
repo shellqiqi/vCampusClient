@@ -1,6 +1,6 @@
 javafx:
     title: vCampusClient
     appicons:
-      - /icon.jpg
+      - /icon.png
 #    stage:
 #        resizable: false
